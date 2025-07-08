@@ -21,7 +21,7 @@ echo "📦 Pulling Docker images..."
 docker compose pull
 
 # 클러스터 시작
-echo "🚀 Starting Kafka cluster..."
+echo "🚀 Starting Kafka + Flink cluster..."
 docker compose up -d
 
 echo ""

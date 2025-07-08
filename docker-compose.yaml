@@ -83,3 +83,29 @@ services:
       - kafka1
       - kafka2
       - kafka3
+
+  flink-jobmanager:
+    image: flink:1.19
+    container_name: flink-jobmanager
+    hostname: jobmanager
+    ports:
+      - "8081:8081"  # Flink Web UI
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: jobmanager
+    depends_on:
+      - kafka1
+    networks:
+      default:
+        aliases:
+          - jobmanager
+
+  flink-taskmanager:
+    image: flink:1.19
+    container_name: flink-taskmanager
+    depends_on:
+      - flink-jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TASK_MANAGER_NUMBER_OF_TASK_SLOTS=4
+    command: taskmanager
