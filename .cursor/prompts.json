@@ -1,0 +1,11 @@
+{
+    "explain_prompt.md": {
+      "title": "🧠 코드 설명",
+      "description": "초보자도 이해할 수 있도록 친절한 코드 설명"
+    },
+    "test_prompt.md": {
+      "title": "🧪 테스트 코드 생성",
+      "description": "pytest 기반 테스트 코드 자동 생성"
+    }
+  }
+  
